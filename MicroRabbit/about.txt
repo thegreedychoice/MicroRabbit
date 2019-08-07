@@ -1,0 +1,1 @@
+This project handles entities needed for the bus, commands, and all our events that would be published/subscribed.
