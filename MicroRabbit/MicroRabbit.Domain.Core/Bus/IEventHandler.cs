@@ -9,7 +9,7 @@ namespace MicroRabbit.Domain.Core.Bus
     public interface IEventHandler<in TEvent>: IEventHandler
         where TEvent: Event
     {
-        //This EventHandler takes in any event with a contraint that it should be of Type Event and implements IEventHandler
+        //This EventHandler takes in any event with a constraint that it should be of Type Event and implements IEventHandler
 
         //Interface has a task handle that handles any Event
         Task Handle(TEvent @event);
