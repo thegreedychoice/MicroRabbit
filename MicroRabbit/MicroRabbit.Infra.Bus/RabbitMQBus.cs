@@ -36,7 +36,7 @@ namespace MicroRabbit.Infra.Bus
         }
 
         public void Publish<T>(T @event) where T : Event
-        {
+        {   //Publish the @event message on the queue of @event type
             var factory = new ConnectionFactory() { HostName = "localhost" };
             using (var connection = factory.CreateConnection())
             using (var channel = connection.CreateModel())
@@ -76,7 +76,7 @@ namespace MicroRabbit.Infra.Bus
                     $"Handler Type {handlerType.Name} already is registered for'{eventName}'", nameof(handlerType));
             }
 
-            //add the handler type if its 
+            //add the handler type if it is not in the list of handlers
             _handlers[eventName].Add(handlerType);
 
             StartBasicConsume<T>();
